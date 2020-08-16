@@ -6,7 +6,8 @@ const app=express();
 // Setting Up ejs 
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
+// middleware for router
+app.use('/', require('./routes'));
 
 app.listen(port, function(err){
     if(err){
