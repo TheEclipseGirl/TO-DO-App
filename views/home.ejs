@@ -5,7 +5,65 @@
             <%= title%>
         </title>
     </head>
+    
     <body>
-        <h2>To Do App</h2>
-    </body>
+        <div>
+            <h2>To Do App</h2>
+        </div>
+        <!-- Form Container For 1st Form  -->
+        <form action="">
+            <div>
+                <label for="description">Description</label>
+                <input id="description" type="text" name="description" placeholder="what do you need to do" required>
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="school">School</option>
+                    <option value="cleanig">Cleaning</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="date">Date</label>
+                <input type="date" name="date" required>
+            </div>
+
+            <!-- Add Task Buttom -->
+            
+            <button type="submit">
+                <i class="far fa-plus-square"></i>
+                Add Task</button>
+            
+         </form>
+         <!-- Form Container For 2nd Form-->
+         <form action="">
+            <button type="submit">
+                <i class="fas fa-trash-alt"></i>
+                Delete Tasks
+            </button>
+            <div>
+                <ul>
+                    <li>
+                        <label for="task">
+                            <input id="task" type="checkbox" name="work" value="">
+                            Annual Report Submission deadline
+                            
+                            </label>
+                                
+                        <div>
+                            Work
+                        </div>
+                        <!-- For Icon and calender -->  
+                        <div>
+                            <i class="far fa-calendar-alt"></i>
+                            
+                        </div>
+                       
+                    </li>
+                   
+                </ul>
+            </div>
+
+         </form>
+        <script src="https://kit.fontawesome.com/c90807128e.js" crossorigin="anonymous"></script>
+     </body>
 </html>
