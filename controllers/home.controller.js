@@ -30,5 +30,32 @@ module.exports.addTask=function(req,res){
 
     });
 
+}
+// delete task from db
+module.exports.deleteTask = function(req, res){
+    let task_id = req.body.task;
+    
+    
+    if(typeof(task_id) === 'string'){
+         Task.findByIdAndDelete(task_id, function(err, task){
+            if(err){
+                console.log('Error in finding and deleting task');
+                return;
+            }
+            return res.redirect('back');
+        });
+    }
+    else{
+        for(let n of task_id){
+            Task.findByIdAndDelete(n, function(err, task){
+                if(err){
+                    // console.log('Error in finding and deleting task');
+                    return;
+                }
+            });
+        }
+        return res.redirect('back');
+    }
+
     
 }

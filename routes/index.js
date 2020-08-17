@@ -6,7 +6,10 @@ const router=express.Router();
 
     router.get('/',homeController.home);
 
-    // import task Controller
+    // For Add Task
     router.post('/add-task',homeController.addTask);
+
+    // For Delete Task
+    router.post('/delete-task',homeController.deleteTask);
 
 module.exports=router;

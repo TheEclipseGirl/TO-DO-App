@@ -35,7 +35,7 @@
             
          </form>
          <!-- Form Container For 2nd Form-->
-         <form action="">
+         <form action="/delete-task" method="POST">
             <button type="submit">
                 <i class="fas fa-trash-alt"></i>
                 Delete Tasks
@@ -45,7 +45,7 @@
                <% for(task of tasks){%>
                     <li>
                         <label for="task">
-                            <input id="task" type="checkbox" name="task" value="">
+                            <input id="task" type="checkbox" name="task" value=<%= task.id %>>
                            <p><%= task.description %></p>
                         </label>
 
