@@ -7,6 +7,10 @@ const app=express();
 // Setting Up ejs 
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+// for getting Schema OR Form Details (Key Value Pairs)
+app.use(express.urlencoded({ useNewUrlParser: true }));
+
 // middleware for router
 app.use('/', require('./routes'));
 

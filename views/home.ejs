@@ -11,7 +11,7 @@
             <h2>To Do App</h2>
         </div>
         <!-- Form Container For 1st Form  -->
-        <form action="">
+        <form action="/add-task" method="POST">
             <div>
                 <label for="description">Description</label>
                 <input id="description" type="text" name="description" placeholder="what do you need to do" required>
@@ -42,24 +42,25 @@
             </button>
             <div>
                 <ul>
+               <% for(task of tasks){%>
                     <li>
                         <label for="task">
                             <input id="task" type="checkbox" name="task" value="">
-                            Annual Report Submission deadline
-                            
-                            </label>
+                           <p><%= task.description %></p>
+                        </label>
 
                         <div>
-                            Work
+                            <%= task.category %>
                         </div>
                         <!-- For Icon and calender -->  
                         <div>
                             <i class="far fa-calendar-alt"></i>
-                            
+                            <%= task.duedate %>
+
                         </div>
                        
                     </li>
-                   
+               <%}%>
                 </ul>
             </div>
 
