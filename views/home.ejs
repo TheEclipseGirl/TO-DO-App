@@ -4,67 +4,116 @@
         <title>
             <%= title%>
         </title>
+        <!-- Bootstrap Cdn -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- CSS Link -->
+        <link rel="stylesheet" href="/css/home.css">
     </head>
     
     <body>
-        <div>
-            <h2>To Do App</h2>
+
+        <!-- To-Do-Heading -->
+        <div class="mx-auto mt-3 d-flex justify-content-center"  style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            <h1>To Do App</h1>
         </div>
+
+        <!-- Main-Container -->
+        <div class="col-lg-6 col-10 col-md-6 mx-auto border border-success rounded-lg bg-warning mt-5">
+          
         <!-- Form Container For 1st Form  -->
         <form action="/add-task" method="POST">
-            <div>
-                <label for="description">Description</label>
-                <input id="description" type="text" name="description" placeholder="what do you need to do" required>
-                <label for="category">Category</label>
-                <select name="category" id="category">
+            <!-- Description Continer -->
+            <div class="d-flex flex-column border-bottom">
+                <label for="description"><h4>Description</h4></label>
+                <input class="border-0 bg-warning form-control" id="description" type="text" name="description" placeholder="what do you need to do" required>
+            </div>
+            <!-- Category Container -->
+        <div class="d-flex" >
+            <div class="d-flex flex-column col-6 border-bottom border-right">
+                <label for="category" >
+                    <h5>Category</h5>
+                </label>
+                <select name="category" id="category" class="mt-n1 border-0 bg-warning">
                     <option value="personal">Personal</option>
                     <option value="work">Work</option>
                     <option value="school">School</option>
                     <option value="cleanig">Cleaning</option>
                     <option value="other">Other</option>
                 </select>
-                <label for="date">Date</label>
-                <input type="date" name="duedate" required>
             </div>
+            <!-- Due Date Container -->
+            <div class="d-flex flex-column col-6 border-bottom">
+                <label for="date"><h5>Due Date</h5></label>
+                <input type="date" name="duedate" class="border-0 bg-warning form-control" required>
+            </div>
+        </div>
 
             <!-- Add Task Buttom -->
-            
-            <button type="submit">
-                <i class="far fa-plus-square"></i>
-                Add Task</button>
-            
-         </form>
+            <div class="mx-auto" style="width: 120px;">
+                <button type="submit" class="btn btn-secondary mt-4 ml-5 mx-auto col-12 btn-md">
+                    <i class="fas fa-plus"></i>
+                    Add Task
+                </button>
+            </div>
+           
+        </form>
+
          <!-- Form Container For 2nd Form-->
-         <form action="/delete-task" method="POST">
-            <button type="submit">
-                <i class="fas fa-trash-alt"></i>
-                Delete Tasks
-            </button>
+        
+        <!-- Delete Task Button -->
+        <form action="/delete-task" method="POST">
+            <!-- Delete Task Container -->
+            <div class="mx-auto" style="width: 150px;">
+                <button type="submit" class="btn btn-danger mt-2 ml-5 mx-auto col-12 btn-md" >
+                    <i class="fas fa-trash-alt"></i>
+                    Delete Tasks
+                </button>
+            </div>
+           
             <div>
-                <ul>
+                <ol>
                <% for(task of tasks){%>
-                    <li>
-                        <label for="task">
-                            <input id="task" type="checkbox" name="task" value=<%= task.id %>>
-                           <p><%= task.description %></p>
-                        </label>
+                    <li class=" border-top ml-n4 mt-2 d-flex justify-content-between" >
+                        
 
                         <div>
-                            <%= task.category %>
-                        </div>
-                        <!-- For Icon and calender -->  
-                        <div>
-                            <i class="far fa-calendar-alt"></i>
-                            <%= task.duedate %>
+                            <label for="task">
+                                <input class="mt-2" id="task" class="border-0 bg-info" type="checkbox" name="task" value=<%= task.id %>>
+                               <h5><%= task.description %></h5>
+                            </label>
+
+                            <!-- For Icon and calender -->  
+                            <div class="mt-n2 ml-n1">
+                                <i class="far fa-calendar-alt"></i>
+                                <%= task.duedate %>
+
+                            </div>
 
                         </div>
+                        <div class="mt-4">
+                            <h5><%= task.category %></h5> 
+                         </div>
+ 
+                        
                        
+                        
+
                     </li>
                <%}%>
-                </ul>
+                </ol>
             </div>
 
          </form>
+        <!-- Font Awesome CDN -->
         <script src="https://kit.fontawesome.com/c90807128e.js" crossorigin="anonymous"></script>
-     </body>
+         
+         <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+        <script src="/js/home.js"></script>
+    </div>
+</body>
 </html>

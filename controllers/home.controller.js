@@ -34,8 +34,11 @@ module.exports.addTask=function(req,res){
 // delete task from db
 module.exports.deleteTask = function(req, res){
     let task_id = req.body.task;
-    
-    
+
+    if(typeof(task_id)==='undefined'){
+        return res.redirect('back');
+    }
+
     if(typeof(task_id) === 'string'){
          Task.findByIdAndDelete(task_id, function(err, task){
             if(err){
